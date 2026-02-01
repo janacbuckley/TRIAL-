@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/review.css">
+
+   <title>Bright Boost Media</title>
+
+   </head>
+  <body>
+    <nav>
+
+        <div class="logo">
+            <img src="../img/logo.PNG" alt="logo">
+        </div>
+
+<div class="topnav" id="myTopnav">
+
+
+
+<a href="../pages/index.html">Home</a>
+<a href="about.html">About</a>
+ <div class="dropdown">
+
+<button class="dropbtn active">Services
+
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="enterprise-solutions.html">Enterprise Growth Solutions</a>
+      <a href="emerging-solutions.html">Emerging Business Solutions</a>
+      <a href="packages.html">Packages & Pricing</a>
+    </div>
+  </div>
+ <a href="contact.html">Contact</a>
+  <a href="faq.html">FAQ</a>
+   <a href="news.html">News</a>
+    <a href="blog.html">Blog</a>
+     <a href="photogallery.html">Photo Gallery</a>
+      <a href="review.html" class="active">Reviews</a>
+
+   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+</nav>
+<section class="reviews-section">
+  <div class="reviews-container">
+    <h1>Client Reviews</h1>
+    <p>Elegant Strategies. Measurable Growth. Trusted Results.</p>
+
+    <div class="carousel">
+      <button class="arrow prev">&#10094;</button>
+
+      <div class="carousel-window">
+        <div class="carousel-track">
+          <!-- Duplicate cards for infinite scroll effect -->
+          <div class="review-card"><div class="avatar">SM</div><div class="stars">★★★★★</div><p>Bright Boost Media brought clarity and polish to our brand. Strategy + visuals were excellent.</p><span>Sarah M.</span></div>
+          <div class="review-card"><div class="avatar">DR</div><div class="stars">★★★★★</div><p>The attention to detail and marketing strategy stood out immediately. Very professional.</p><span>Daniel R.</span></div>
+          <div class="review-card"><div class="avatar">AK</div><div class="stars">★★★★★</div><p>Premium visuals, smart campaigns and consistent results. Highly recommended.</p><span>Aisha K.</span></div>
+          <div class="review-card"><div class="avatar">JM</div><div class="stars">★★★★★</div><p>Our engagement and confidence as a brand increased dramatically after working with Bright Boost Media.</p><span>Jason M.</span></div>
+          <div class="review-card"><div class="avatar">LN</div><div class="stars">★★★★★</div><p>A refined digital presence that finally reflects our value. Beautiful execution.</p><span>Lena N.</span></div>
+          <div class="review-card"><div class="avatar">TW</div><div class="stars">★★★★★</div><p>Thoughtful execution with real marketing intelligence. The team is top-notch.</p><span>Taylor W.</span></div>
+          <div class="review-card"><div class="avatar">EV</div><div class="stars">★★★★★</div><p>Exceeded expectations with branding and strategy. Very impressed.</p><span>Emily V.</span></div>
+          <div class="review-card"><div class="avatar">MK</div><div class="stars">★★★★★</div><p>Professional, creative and effective marketing solutions. Our ROI improved quickly.</p><span>Michael K.</span></div>
+          <div class="review-card"><div class="avatar">NS</div><div class="stars">★★★★★</div><p>The team’s creativity and execution are unmatched. True premium service.</p><span>Natasha S.</span></div>
+          <div class="review-card"><div class="avatar">JP</div><div class="stars">★★★★★</div><p>Exceptional attention to detail and innovative ideas. Highly recommended.</p><span>James P.</span></div>
+          <div class="review-card"><div class="avatar">AL</div><div class="stars">★★★★★</div><p>Bright Boost Media elevated our online presence to a whole new level.</p><span>Amy L.</span></div>
+          <div class="review-card"><div class="avatar">RS</div><div class="stars">★★★★★</div><p>Creative, reliable and results-driven. We loved working with them.</p><span>Robert S.</span></div>
+        </div>
+      </div>
+
+      <button class="arrow next">&#10095;</button>
+    </div>
+
+    <div class="dots"></div>
+
+    <div class="reviews-cta">
+      <h2>Ready to Elevate Your Brand?</h2>
+      <p>Let’s build a Digital Presence that Reflects Your Value.</p>
+      <a href="contact.html" class="cta-btn">Work With Us</a>
+    </div>
+
+    </div>
+  </section>
+  
+  <footer class="review-footer">
+   <p>&copy; 2026 Bright Boost Media. All Rights Reserved.</p>
+  <p> Devolped by: Jana-Charisse Buckley</p>
+ 
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // carousel code...
+
+  // Services button navigation
+  const servicesBtn = document.querySelector('.dropbtn');
+  if (servicesBtn) {
+    servicesBtn.addEventListener('click', () => {
+      window.location.href = 'services.html';
+    });
+  }
+});
+</script>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.carousel-track');
+  const cards = document.querySelectorAll('.review-card');
+  const dotsContainer = document.querySelector('.dots');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+
+  let index = 0;
+  const gap = 30; // space between cards
+  const cardWidth = cards[0].offsetWidth + gap;
+  let autoScrollInterval;
+
+  // Create dots
+  cards.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dotsContainer.appendChild(dot);
+
+    dot.addEventListener('click', () => {
+      index = i;
+      update();
+      resetAutoScroll();
+    });
+  });
+
+  // Update carousel position and active dot
+  function update() {
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+    document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.dot')[index].classList.add('active');
+  }
+
+  // Next / Prev Buttons
+  nextBtn.onclick = () => {
+    index = (index + 1) % cards.length;
+    update();
+    resetAutoScroll();
+  };
+
+  prevBtn.onclick = () => {
+    index = (index - 1 + cards.length) % cards.length;
+    update();
+    resetAutoScroll();
+  };
+
+  // Auto-scroll function
+  function autoScroll() {
+    index = (index + 1) % cards.length;
+    update();
+  }
+
+  function resetAutoScroll() {
+    clearInterval(autoScrollInterval);
+    autoScrollInterval = setInterval(autoScroll, 4000); // 4s per slide
+  }
+
+  // Start auto-scroll
+  autoScrollInterval = setInterval(autoScroll, 4000);
+
+  // Initial update
+  update();
+});
+</script>
